@@ -77,6 +77,7 @@ void processing_in_interrupt()
         	param_g.param4.internal.decay_start_time = param_g.start + param_g.param4.attack;
 
             param_g.start_flag = true;
+
         }
         else{
             param_g.start = 0;
@@ -84,13 +85,12 @@ void processing_in_interrupt()
         }
     }
 
+   	devide = ((uint16_t)param_g.note_on_off) * MAX_DAC_OUTPUT * (param_g.playing_algorism(param_g.velocity, &param_g.param1, &param_g.param2, &param_g.param3, &param_g.param4, get_system_count_in_us()));
 
-	devide = ((uint16_t)param_g.note_on_off) * MAX_DAC_OUTPUT * (param_g.playing_algorism(param_g.velocity, &param_g.param1, &param_g.param2, &param_g.param3, &param_g.param4, get_system_count_in_us()));
 //	uint64_t st = get_system_count_in_us() - s;
 //	printf("st = %d, ", st);
 //	int i = 0;
 }
-
 
 
 
